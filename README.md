@@ -2,7 +2,7 @@
 
 Welcome to my fourth web development project!
 
-**AI Resume Builder** is a responsive web application built using **HTML5**, **CSS3**, and **JavaScript**. It enables users to enter their personal and professional information, preview their resume in real time, and generate a clean, professional resume.
+**Artifact** is a responsive web application built using **HTML5**, **CSS3**, and **JavaScript**. It enables users to enter their personal and professional information, preview their resume in real time, and generate a clean, professional resume.
 
 ## About the Project
 
