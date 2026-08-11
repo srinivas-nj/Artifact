@@ -1,4 +1,4 @@
-# AI-Resume-Builder
+# Artifact
 
 Welcome to my fourth web development project!
 
