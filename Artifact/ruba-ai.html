@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUBA AI | Resume Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="ruba-ai.css">
+</head>
+<body>
+    <div class="assistant-shell">
+        <header class="assistant-topbar">
+            <div class="brand-block">
+                <div class="brand-logo">R</div>
+                <div>
+                    <div class="brand-name">RUBA AI</div>
+                    <small>Resume Understanding &amp; Building Assistant</small>
+                </div>
+            </div>
+
+            <button class="back-btn" type="button" onclick="window.location.href='index.html'">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Resume Builder
+            </button>
+        </header>
+
+        <main class="assistant-main">
+            <aside class="assistant-sidebar">
+                <div class="sidebar-card">
+                    <h2>Resume guidance</h2>
+                    <p>Ask for help with objectives, ATS formatting, skills, internships, project writeups, and job-ready improvements.</p>
+                </div>
+
+                <div class="suggestions">
+                    <h3>Suggested questions</h3>
+                    <button class="suggestion-btn" type="button" data-question="How can I improve my resume?">How can I improve my resume?</button>
+                    <button class="suggestion-btn" type="button" data-question="Write a career objective for a CSE fresher.">Write a career objective for a CSE fresher.</button>
+                    <button class="suggestion-btn" type="button" data-question="How do I make my resume ATS-friendly?">How do I make my resume ATS-friendly?</button>
+                    <button class="suggestion-btn" type="button" data-question="Improve my project description.">Improve my project description.</button>
+                    <button class="suggestion-btn" type="button" data-question="What skills should I add to my resume?">What skills should I add to my resume?</button>
+                    <button class="suggestion-btn" type="button" data-question="How should I describe my internship?">How should I describe my internship?</button>
+                </div>
+            </aside>
+
+            <section class="chat-panel">
+                <div class="chat-header">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        RUBA AI
+                    </div>
+                    <button id="clearChatBtn" class="clear-chat" type="button">Clear chat</button>
+                </div>
+
+                <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+
+                <div id="statusMessage" class="status-message" hidden></div>
+
+                <form id="chatForm" class="chat-form">
+                    <label class="sr-only" for="userInput">Ask RUBA AI</label>
+                    <input id="userInput" type="text" placeholder="Ask RUBA AI about your resume..." autocomplete="off">
+                    <button id="sendButton" type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send
+                    </button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="ruba-config.js"></script>
+    <script src="ruba-ai.js"></script>
+</body>
+</html>

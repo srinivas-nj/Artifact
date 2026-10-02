@@ -1,0 +1,51 @@
+name: Deploy frontend to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Artifact/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare static frontend
+        run: |
+          mkdir -p _site/images _site/knowledge
+          cp Artifact/index.html Artifact/resume.html Artifact/resume.css Artifact/resume.js Artifact/ruba-ai.html Artifact/ruba-ai.css Artifact/ruba-ai.js Artifact/ruba-config.js _site/
+          cp Artifact/images/default-profile.svg Artifact/images/hero.jpg Artifact/images/template1.jpg Artifact/images/template2.jpg Artifact/images/template3.jpg _site/images/
+          cp Artifact/knowledge/*.md _site/knowledge/
+          test -s _site/index.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
